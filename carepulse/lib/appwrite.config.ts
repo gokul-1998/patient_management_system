@@ -21,9 +21,11 @@ console.log("project id:",PROJECT_ID)
 console.log("api key:",API_KEY)
 
 client
-    .setEndpoint(ENDPOINT!)
-    .setProject(PROJECT_ID!)
-    .setKey(API_KEY!);
+    .setEndpoint(process.env.NEXT_PUBLIC_ENDPOINT!)
+    .setProject(process.env.NEXT_PUBLIC_PROJECT_ID!)
+    .setKey(process.env.NEXT_PUBLIC_API_KEY!);
+
+// ! is used to tell typescript that the value is not null or undefined
 
 
 export const databases=new sdk.Databases(client);

@@ -6,4 +6,4 @@ export default function Home() {
     <h1 className="text-white text-3xl underline">Home</h1>
    </div>
   );
-}
+} 

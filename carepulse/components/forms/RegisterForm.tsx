@@ -6,7 +6,8 @@ import { z } from "zod"
  
 import { Button } from "@/components/ui/button"
 import {
-  Form} from "@/components/ui/form"
+  Form,
+  FormControl} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import CustomFormField from "../CustomFormField"
 import SubmitButton from "../SubmitButton"
@@ -15,6 +16,9 @@ import { UserFormValidation } from "@/lib/validation"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/lib/actions/patient.actions"
 import { FormFieldType } from "./PatientForm"
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
+import { GenderOptions } from "@/constants"
+import { Label } from "@radix-ui/react-label"
 
 
  
@@ -93,6 +97,46 @@ const RegisterForm = ({user}:{user:User}) => {
             placeholder="(555) 555-5555"
            
         />
+        </div>
+        <div className="flex flex-col gap-6 xl:flex-row">
+        <CustomFormField
+            fieldType={FormFieldType.DATE_PICKER}
+            control={form.control}
+            name="birthDate"
+            label="Date of Birth"
+            
+        />
+        <CustomFormField
+            fieldType={FormFieldType.SKELETON}
+            control={form.control}
+            name="gender"
+            label="Gender"
+            renderSkeleton={(field)=>(
+                <FormControl>
+                    <RadioGroup className="flex h-11 gap-6 xl:justify-between"
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    >
+                        {GenderOptions.map((option)=>(
+                            <div key={option}
+                                className="radio-group">
+                                <RadioGroupItem value={option} id={option}/>
+                                <Label htmlFor={option} className="cursor-pointer">{option}</Label>
+                            </div>
+                        ))}
+                    </RadioGroup>
+                </FormControl>
+            )}
+        />
+        </div>
+        <div className="flex flex-col gap-6 xl:flex-row">
+
+        </div>
+        <div className="flex flex-col gap-6 xl:flex-row">
+
+        </div>
+        <div className="flex flex-col gap-6 xl:flex-row">
+
         </div>
 
 

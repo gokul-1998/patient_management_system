@@ -70,11 +70,32 @@ const RegisterForm = ({user}:{user:User}) => {
             fieldType={FormFieldType.INPUT}
             control={form.control}
             name="name"
-            label="Full name"
+            label="Full Name"
             placeholder="John Doe"
             iconSrc="/assets/icons/user.svg"
             iconAlt="user "
         />
+        <div className="flex flex-col gap-6 xl:flex-row">
+        <CustomFormField
+            fieldType={FormFieldType.INPUT}
+            control={form.control}
+            name="email"
+            label="Email"
+            placeholder="johndoe@jsmastery.pro"
+            iconSrc="/assets/icons/email.svg"
+            iconAlt="email"
+        />
+        <CustomFormField
+            fieldType={FormFieldType.PHONE_INPUT}
+            control={form.control}
+            name="phone"
+            label="Phone number"
+            placeholder="(555) 555-5555"
+           
+        />
+        </div>
+
+
       
         <SubmitButton isLoading={isLoading}>
             Get Started

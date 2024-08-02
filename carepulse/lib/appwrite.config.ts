@@ -7,19 +7,19 @@ export const {
 } = process.env
 
 
-console.log(
-    "project id:" ,PROJECT_ID,"\n api key:",
-    API_KEY,"\n database id:",DATABASE_ID,"\n patient collection id:",
-    PATIENT_COLLECTION_ID,"\n doctor collection id:",DOCTOR_COLLECTION_ID,
-    "\n appointment collection id:",APPOINTMENT_COLLECTION_ID,
-    "\n bucket id:",BUCKET_ID,"\n endpoint:",ENDPOINT   
-)
-console.log(process.env)
+// console.log(
+//     "project id:" ,PROJECT_ID,"\n api key:",
+//     API_KEY,"\n database id:",DATABASE_ID,"\n patient collection id:",
+//     PATIENT_COLLECTION_ID,"\n doctor collection id:",DOCTOR_COLLECTION_ID,
+//     "\n appointment collection id:",APPOINTMENT_COLLECTION_ID,
+//     "\n bucket id:",BUCKET_ID,"\n endpoint:",ENDPOINT   
+// )
+// console.log(process.env)
 
 const client = new sdk.Client();
-console.log("endpoint:",ENDPOINT)
-console.log("project id:",PROJECT_ID)
-console.log("api key:",API_KEY)
+// console.log("endpoint:",ENDPOINT)
+// console.log("project id:",PROJECT_ID)
+// console.log("api key:",API_KEY)
 
 client
     .setEndpoint(process.env.NEXT_PUBLIC_ENDPOINT!)

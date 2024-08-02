@@ -191,28 +191,27 @@ const RegisterForm = ({ user }: { user: User }) => {
           </div>
 
         </section>
+        {/* PRIMARY CARE PHYSICIAN */}
         <CustomFormField
             fieldType={FormFieldType.SELECT}
             control={form.control}
             name="primaryPhysician"
-            label="Primary Physician"
+            label="Primary care physician"
             placeholder="Select a physician"
           >
-            {Doctors.map((doctor)=>(
-                <SelectItem key={doctor.name} value={doctor.name }>
-                    <div className="flex cursor-pointer items-center gap-2">
-                        <Image
-                        src={doctor.image}
-                        width={32}
-                        height={32}
-                        alt={doctor.name}
-                        className="rounded-full border border-dark-500"
-                        />
-                        <p>{doctor.name}</p>
-
-                    </div>
-
-                </SelectItem>
+            {Doctors.map((doctor, i) => (
+              <SelectItem key={doctor.name + i} value={doctor.name}>
+                <div className="flex cursor-pointer items-center gap-2">
+                  <Image
+                    src={doctor.image}
+                    width={32}
+                    height={32}
+                    alt="doctor"
+                    className="rounded-full border border-dark-500"
+                  />
+                  <p>{doctor.name}</p>
+                </div>
+              </SelectItem>
             ))}
           </CustomFormField>
 
@@ -323,7 +322,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         <CustomFormField
         fieldType={FormFieldType.CHECKBOX}
         control={form.control}
-        name="treatmentConcent"
+        name="treatmentConsent"
         label="I consent to treatment"
         />
         <CustomFormField
@@ -335,7 +334,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         <CustomFormField
         fieldType={FormFieldType.CHECKBOX}
         control={form.control}
-        name="privacyConcent"
+        name="privacyConsent"
         label="I consent to privacy policy"
         />
 

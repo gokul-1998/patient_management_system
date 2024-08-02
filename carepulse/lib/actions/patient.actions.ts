@@ -42,10 +42,14 @@ export const createUser = async (user: CreateUserParams) => {
 export const getUser=async(userId:string)=>{
     try{
         const user=await users.get(userId);
+        console.log("Raw user response:", user);
+
         return parseStringify(user);
     }
     catch (error){
-        console.log(error)
+
+        console.log("11111111111111111111111111")
+        // console.log(error)
     }
 }
 
@@ -58,6 +62,13 @@ export const registerPatient=async({identificationDocument,...patient}:RegisterU
         )
         file = await storage.createFile(BUCKET_ID!,ID.unique(),inputFile)
         }
+        console.log("aaaaaaaaaaaaaaa")
+        console.log(
+            {
+                identificationDocumentId:file?.$id|| null,
+                identificationDocumentUrl:`${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file?.$id}/view?project=${PROJECT_ID}`,
+            }
+        )
 
         const newPatient= await databases.createDocument(DATABASE_ID!,
             PATIENT_COLLECTION_ID!,

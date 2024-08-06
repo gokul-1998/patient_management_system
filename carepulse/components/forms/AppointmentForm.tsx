@@ -73,8 +73,10 @@ const   AppointmentForm = ({
     case 'schedule':
       buttonLabel="Schedule Appointment"
       break;
+    default:
+      break;
 
-
+  }
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
@@ -116,7 +118,7 @@ const   AppointmentForm = ({
             showTimeSelect
             dateFormat="MM/dd/yyyy - h:mm aa"
             />
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 xl:flex-row ">
               <CustomFormField
                 fieldType={FormFieldType.TEXTAREA}
                 control={form.control}
@@ -157,4 +159,6 @@ const   AppointmentForm = ({
   )
 }
 
+
 export default AppointmentForm
+ 

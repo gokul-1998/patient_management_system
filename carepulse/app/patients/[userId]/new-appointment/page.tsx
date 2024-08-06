@@ -23,7 +23,7 @@ export default async  function NewAppointment({params:{userId}}:SearchParamProps
             className="mb-12 h-10 w-fit"
           />
           <AppointmentForm type="create" userId={userId} patientId={patient}/>
-            <p className="justify-items-end text-dark-600 xl:text-left">
+            <p className="copyright mt-10 py-12">
               © 2024 CarePulse
             </p>
 

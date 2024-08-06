@@ -48,11 +48,31 @@ export const getUser=async(userId:string)=>{
     }
     catch (error){
 
-        console.log("11111111111111111111111111")
+        console.log("get user - 11111111111111111111111111")
         // console.log(error)
     }
 }
 
+
+export const getPatient=async(userId:string)=>{
+    console.log(PATIENT_COLLECTION_ID)
+    console.log(userId)
+    try{
+        const patients=await databases.listDocuments(DATABASE_ID!,PATIENT_COLLECTION_ID!,[
+            Query.equal('userId',userId)
+        ]);
+
+        console.log("wwwwwwwwwwwwwwwww")
+        console.log(patients)
+        const x=parseStringify(patients.documents[0]);
+        return x
+    }
+    catch (error){
+
+        console.log(" get patient 11111111111111111111111111")
+        // console.log(error)
+    }
+}
 export const registerPatient=async({identificationDocument,...patient}:RegisterUserParams)=>{
     try{
         let file;
